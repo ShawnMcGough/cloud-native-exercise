@@ -17,11 +17,11 @@
 
 > Note: Works on Windows or Linux 
 
-After cloning this repository, you can type the following command from PowerShell to deploy the app:
+After cloning this repository and logging into your Azure subscription with `az login`, type the following command from PowerShell to deploy the app:
 
 `.\deploy.ps1`
 
-The deploy script will test the REST API with a GET request. 
+The deploy script will test the REST API with a GET request and display the payload. 
 The url is also displayed so you can view the swagger docs.
 
 ## What is Happening

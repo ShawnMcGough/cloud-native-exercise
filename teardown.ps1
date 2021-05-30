@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-    [string] [Parameter(Mandatory = $false)] $ResourceGroup = "all-things-rg"
+    [string] [Parameter(Mandatory = $false)] $ResourceGroup = 'all-things-rg'
 )
 
 Function Write-Color {
@@ -10,10 +10,10 @@ Function Write-Color {
 }
 
 Clear-Host
-Write-Color -NoNewline "-> getting subscription info..." -Color White
+Write-Color -NoNewline '-> getting subscription info...' -Color White
 $subscription = az account show | ConvertFrom-Json
 if (!$?) {
-    throw "-> FATAL: not logged into Azure. Cannot continue. Run az login."
+    throw '-> FATAL: not logged into Azure. Cannot continue. Run az login.'
 }
 Write-Color  'OK', '!' -Color Green, White
 
