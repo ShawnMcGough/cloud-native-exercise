@@ -20,7 +20,7 @@ Write-Color  'OK', '!' -Color Green, White
 $subscriptionId = $Subscription.id
 Write-Color -Text '-> using subscription [', "$($subscription.name) ($subscriptionId)", ']' -Color White, Cyan, White
 
-Write-Color -Text '-> deleting resource group [', "$ResourceGroup", ']...' -Color White, Cyan, White
+Write-Color -Text '-> preparing to delete resource group [', "$ResourceGroup", ']...' -Color White, Cyan, White
 az group delete --name $ResourceGroup 
 if (!$?) {
     Write-Color  'Did ', 'not', ' delete!' -Color White, Red, White

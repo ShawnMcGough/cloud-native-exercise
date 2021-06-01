@@ -7,7 +7,7 @@
 * An Azure subscription
 * [PowerShell 7+][powershell install]
 * [Azure CLI 2.20+][az install] (check with `az -v`)
-  > ⚠ Linux Warning: Ubuntu 20.04 (Focal Fossa) and 20.10 (Groovy Gorilla) include an azure-cli package with version 2.0.81 provided by the `universe` repository. This package is outdated and not recommended. If this package is installed, remove the package before continuing by running the command `sudo apt remove azure-cli -y && sudo apt autoremove -y`.
+  > ⚠ Ubuntu 20.04 (Focal Fossa) and 20.10 (Groovy Gorilla) include an azure-cli package with version 2.0.81 provided by the `universe` repository. This package is outdated and not recommended. If this package is installed, remove the package before continuing by running the command `sudo apt remove azure-cli -y && sudo apt autoremove -y`.
 * The following `az cli` extensions:
   - aks [`az aks install-cli`]
   - bicep [`az bicep install`] 
@@ -28,7 +28,7 @@ The url is also displayed so you can view the swagger docs.
 
 The `deploy.ps1` script will:
 1. provision an AKS cluster via .bicep 
-1. deploy a dotnet core 5.0 web api application via helm chart
+1. deploy a dotnet core 5.0 rest api application via helm chart
 1. get the public IP address via kubectl
 1. validate a simple rest request works via powershell `Invoke-RestMethod`
 
