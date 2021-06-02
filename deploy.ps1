@@ -3,7 +3,8 @@ param(
     [string] [Parameter(Mandatory = $false)] $ResourceGroup = 'all-things-rg',
     [string] [Parameter(Mandatory = $false)] $Location = 'eastus2',
     [string] [Parameter(Mandatory = $false)] $RestAppName = 'restallthings',
-    [string] [Parameter(Mandatory = $false)] $AppNamespace = 'allthings'
+    [string] [Parameter(Mandatory = $false)] $AppNamespace = 'allthings',
+    [string] [Parameter(Mandatory = $false)] $ExpectedMessage = 'Automate all the things!'
 )
 Function Write-Color {
     Param ([String[]]$Text, [ConsoleColor[]]$Color, [Switch]$NoNewline = $false)
@@ -99,12 +100,23 @@ Write-Color -Text '-> svc running @ public IP [', "$svcIp", ']' -Color White, Cy
 Write-Color -NoNewline -Text '-> validating REST api...' -Color White
 
 $payload = Invoke-RestMethod -Uri "http://$svcIp/Default"
+if (!$?) {
+    throw "-> FATAL: Invoke-RestMethod on [http://$svcIp/Default] did not return expected result. Cannot continue."
+}
 
-Write-Color  'OK', '!' -Color Green, White
+if ($payload.message -eq $ExpectedMessage) {
+    Write-Color  'OK', '!' -Color Green, White
+} else {
+    Write-Color  'FAIL', '!' -Color Red, White
+    Write-Color  'Expected message=', $ExpectedMessage -Color White, Cyan
+}
 
 Write-Color "-> received payload:`r`n" -Color White
 Write-Host $payload
 Write-Host "`r`n"
+
+
+
 Write-Color '********************************************************************************' -Color White
 Write-Color '* visit ', "http://$svcIp/swagger/index.html", ' for Swagger documentation.     *' -Color White, Blue, White
 Write-Color '********************************************************************************' -Color White
