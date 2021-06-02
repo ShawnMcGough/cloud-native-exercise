@@ -62,7 +62,7 @@ $aksName = ($aksResult | ConvertFrom-Json).properties.outputs.resourceName.value
 Write-Color -Text '-> created Azure Kubernetes Service (AKS) [', "$aksName", ']' -Color White, Cyan, White
 
 Write-Color -NoNewline -Text '-> getting AKS credentials...' -Color White
-az aks get-credentials -n $aksName --overwrite-existing
+$creds = az aks get-credentials -n $aksName --overwrite-existing
 if (!$?) {
     throw '-> FATAL: Could not get AKS credentials. Cannot continue.'
 }
@@ -106,7 +106,8 @@ if (!$?) {
 
 if ($payload.message -eq $ExpectedMessage) {
     Write-Color  'OK', '!' -Color Green, White
-} else {
+}
+else {
     Write-Color  'FAIL', '!' -Color Red, White
     Write-Color  'Expected message=', $ExpectedMessage -Color White, Cyan
 }
