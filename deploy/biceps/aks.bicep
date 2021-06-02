@@ -20,10 +20,6 @@ param networkPlugin string = 'kubenet'
 @description('Boolean flag to turn on and off of RBAC.')
 param enableRBAC bool = true
 
-@description('Boolean flag to turn on and off of virtual machine scale sets')
-param vmssNodePool bool = true
-
-
 resource resourceName_resource 'Microsoft.ContainerService/managedClusters@2021-02-01' = {
   location: location
   name: resourceName
