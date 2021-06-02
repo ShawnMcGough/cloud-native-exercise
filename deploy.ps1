@@ -118,7 +118,7 @@ Write-Host "`r`n"
 
 
 Write-Color '********************************************************************************' -Color White
-Write-Color '* visit ', "http://$svcIp/swagger/index.html", ' for Swagger documentation.     *' -Color White, Blue, White
+Write-Color '* visit ', "http://$svcIp/swagger/index.html", ' for Swagger documentation.      *' -Color White, Blue, White
 Write-Color '********************************************************************************' -Color White
 
 Write-Color -Text '-> All done, ', 'neat', '!' -Color White, Blue, White
