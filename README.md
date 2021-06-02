@@ -8,14 +8,20 @@
 * [PowerShell 7+][powershell install]
 * [Azure CLI 2.20+][az install] (check with `az -v`)
   > ⚠ Ubuntu 20.04 (Focal Fossa) and 20.10 (Groovy Gorilla) include an azure-cli package with version 2.0.81 provided by the `universe` repository. This package is outdated and not recommended. If this package is installed, remove the package before continuing by running the command `sudo apt remove azure-cli -y && sudo apt autoremove -y`.
+
 * The following `az cli` extensions:
   - aks [`az aks install-cli`]
   - bicep [`az bicep install`] 
 * [Helm 3+][Helm Install]
+## 🔁Upgrade your Tools
+
+> Even if you've install recently, upgrading is always a good idea. `az` and `bicep` have frequent releases:
+  - aks [`az upgrade`]
+  - bicep [`az bicep upgrade`] 
 
 ## How to Deploy/Run
 
-> Note: Works on Windows or Linux 
+> 📝 Note: Works on Windows or Linux 
 
 After cloning this repository and logging into your Azure subscription with `az login`, type the following command from PowerShell to deploy the app:
 
